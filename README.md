@@ -3,7 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE.txt"><img src="https://img.shields.io/badge/license-GPL--3.0-f5b83d?style=for-the-badge&labelColor=16151c" alt="License: GPL-3.0"></a>
   <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-f5b83d?style=for-the-badge&labelColor=16151c&logo=windows&logoColor=white" alt="Windows 10 and 11">
   <img src="https://img.shields.io/badge/Python-3.11-f5b83d?style=for-the-badge&labelColor=16151c&logo=python&logoColor=white" alt="Python 3.11">
   <img src="https://img.shields.io/badge/PyTorch-CUDA%2012.8-f5b83d?style=for-the-badge&labelColor=16151c&logo=pytorch&logoColor=white" alt="PyTorch with CUDA 12.8">
@@ -157,3 +156,110 @@ window never freezes, and each sentence is played the moment it's ready rather t
 | **Memory** | 16 GB of RAM recommended |
 | **Disk** | About 6 GB for Python and the packages, plus about 3 GB for each voice model |
 | **Internet** | Once, to download the packages and the voice model |
+
+## &#9670; Using Persona
+
+1. **Add a voice.** Click **Add voice**, then record yourself or pick a recording. You can also drop an audio or
+   video file anywhere on the window.
+2. **Type** what it should say, pick a mood, and press **Speak**.
+3. **Keep the best takes.** Star them in History, export them as WAV or MP3, or drag them into a chat.
+
+**For the closest clone:** record about 20 seconds in a quiet room with no echo. A phone's voice recorder usually
+beats a laptop's built-in mic, which often processes your voice like a phone call (Persona tells you when it
+hears that). Turn on **Closest match** under More options to make three takes of every sentence and keep the one
+that sounds most like the voice.
+
+### Keyboard shortcuts
+
+| Keys | What they do |
+|---|---|
+| <kbd>Ctrl</kbd> + <kbd>Enter</kbd> | Speak, or stop |
+| <kbd>Esc</kbd> | Stop, or go back from a page |
+| <kbd>Ctrl</kbd> + <kbd>T</kbd> | Open the Talk box |
+| <kbd>Ctrl</kbd> + <kbd>,</kbd> | Open Settings |
+| <kbd>F1</kbd> | Show all shortcuts |
+| <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd> | Speak the selected text in any app |
+| <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd> | Open the Talk box from any app |
+
+The two global hotkeys can be changed in Settings if another app already uses them.
+
+<br>
+
+## &#9670; Questions
+
+<details>
+<summary><b>Will it run on my PC?</b></summary>
+<br>
+
+Almost certainly. Persona picks the fastest thing your PC has: the graphics card if it's a supported NVIDIA one,
+otherwise the processor. Nothing to set up either way.
+
+| Your PC | Where Persona runs | What to expect |
+|---|---|---|
+| **NVIDIA RTX 20, 30, 40 or 50-series** (tested on RTX 4050 and RTX 5060) | Graphics card | Speech starts in about half a second and is made faster than you can listen to it |
+| **NVIDIA GTX 10 or 16-series** | Graphics card | Works well; a little slower than RTX |
+| **Older NVIDIA, AMD or Intel graphics, or none** | Processor | Works, but slower: a few seconds before the first word, and long text takes a while |
+
+A few things help:
+
+- **4 GB of graphics memory** is enough for the voice model. Close games before a long session, or let Persona
+  free the memory by itself after 10 minutes of quiet.
+- **Keep the NVIDIA driver up to date.** Persona's PyTorch uses CUDA 12.8, which needs a driver from 2025 or later.
+- **On the processor, more cores is better.** Even a fast 16-core laptop processor makes speech at about two thirds
+  of real time, so short lines feel fine and long ones need a little patience. 16 GB of RAM is recommended.
+</details>
+
+<details>
+<summary><b>Is my voice uploaded anywhere?</b></summary>
+<br>
+No. Recordings, voices, History and settings stay in Persona's folder on your PC. The only thing Persona ever
+downloads is the voice model, once, from <a href="https://huggingface.co/ResembleAI">huggingface.co/ResembleAI</a>.
+</details>
+
+<details>
+<summary><b>Where does Persona keep my things?</b></summary>
+<br>
+Everything it saves (settings, voices, History, audiobooks, models and logs) stays inside its own folder, so
+deleting the folder removes it all. If that folder can't be written to, it uses <code>%LOCALAPPDATA%\Persona</code>
+instead. Set the <code>PERSONA_DATA</code> environment variable to choose another place.
+</details>
+
+<details>
+<summary><b>It takes a while to load. Is that normal?</b></summary>
+<br>
+Loading the model takes a few seconds on a graphics card. After 10 minutes without use, Persona unloads it to
+free about 3 GB of graphics memory for games (you can change or turn this off in Settings). The next Speak
+loads it again.
+</details>
+
+<details>
+<summary><b>Does it run on Linux?</b></summary>
+<br>
+The main window, voices, speaking, History and audiobooks are written to work on Linux too, with FFmpeg and
+PortAudio installed from your distribution. The global hotkeys, tray icon and shortcuts are Windows features.
+Persona is built and tested on Windows first.
+</details>
+
+<details>
+<summary><b>Can I tell that audio was made with Persona?</b></summary>
+<br>
+Yes. Everything Persona makes carries Resemble AI's inaudible PerTh watermark, which marks it as AI-generated.
+</details>
+
+<br>
+
+## &#9670; Use voices responsibly
+
+Only clone voices you have permission to use: your own, or someone who has agreed. Pretending to be a real person
+can hurt people and may be against the law where you live.
+
+<br>
+
+## &#9670; Built with
+
+[Chatterbox](https://github.com/resemble-ai/chatterbox) by Resemble AI for the voices &nbsp;&bull;&nbsp;
+[PyTorch](https://pytorch.org) &nbsp;&bull;&nbsp; [Qt for Python](https://doc.qt.io/qtforpython-6/) &nbsp;&bull;&nbsp;
+[FFmpeg](https://ffmpeg.org) &nbsp;&bull;&nbsp; [sounddevice](https://python-sounddevice.readthedocs.io)
+
+<p align="center"><br><img src="docs/screenshots/logo.png" width="56" alt="Persona logo"></p>
+
